@@ -33,7 +33,7 @@ Our setup consists of 5 components:
 
 ## How to run
 
-In order to run this sample, you need Docker Desktop.
+In order to build & run this sample, you need gradle and Docker Desktop.
 You can run it by executing the following commands:
 
 - Start up the Kafka Cluster and AKHQ: `docker compose --project-directory ./docker up`
