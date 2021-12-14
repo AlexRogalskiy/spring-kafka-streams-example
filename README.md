@@ -15,9 +15,9 @@ To simulate a data processing pipeline, 3 separate services produce, process, an
 We are helping a space agency to set up their telemetry data receivers. Therefore, we need to keep track of the telemetry data we receive from the various space probes that are roaming the solar system (and beyond!). The space agency's requirements are:
 
 - We need frequent updates on the aggregated telemetry data per probe, i.e. the total distance traveled by a given probe and the maximum speed it has reached on its journey so far.
-- We need to be able to process aggregated telemetry data regardless of whether the inbound data was received from a NASA or an ESA probe:
-  - NASA probes send their data in the imperial system (i.e. speed in miles/hour, distances in feet)
-  - ESA probes send their data in the metric system (i.e. speed in kilometres/hour, distances in metres)
+- Every probe, regardless of whether it's a NASA or an ESA probe, sends its telemetry data in the imperial format. However we need to make sure that the data is converted if needed, based on the receiver's requirements:
+  - NASA probe data should be made available in the imperial system (i.e. speed in miles/hour, distances in feet)
+  - ESA probes data should be made available in the metric system (i.e. speed in kilometres/hour, distances in metres)
 
 For the ESA probes, the received data thus needs to be converted into the metric system. As we learned from [the Mars Climate Orbiter fail](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter), this is pretty important to keep our probes from ending up in a flaming fireball.
 
