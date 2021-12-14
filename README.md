@@ -5,12 +5,12 @@ This sample project illustrates different ways to integrate Kafka with Spring, p
 - Producing messages to Kafka using `StreamBridge`
 - Handling Streams of Kafka messages using Spring Cloud Streams with the Functions and Kafka Streams API
 - Consuming Streams of Kafka Messages using Consumer Functions
-- Maintaining application state using Kafka State Store
-- Illustrating error handling for serialization and non-deserialization errors
+- Maintaining application state using Kafka State Stores (via `KTable`)
+- Illustrating error handling for deserialization errors
 
-To simulate a data processing pipeline, 3 separate services produce, process, and consume messages. The services' interactions can be observed using AKHQ and the application logs (see below for instructions on how to run it).
+To simulate a data processing pipeline, 3 separate services produce, process, and consume messages. The interactions between the services can be observed using AKHQ and the application logs (see below for instructions on how to run it).
 
-## Fictitious use case :satellite:
+## Fictitious use case 📡 🛰️
 
 We are helping a space agency to set up their telemetry data receivers. Therefore, we need to keep track of the telemetry data we receive from the various space probes that are roaming the solar system (and beyond!). The space agency's requirements are:
 
@@ -19,7 +19,7 @@ We are helping a space agency to set up their telemetry data receivers. Therefor
   - NASA probes send their data in the imperial system (i.e. speed in miles/hour, distances in feet)
   - ESA probes send their data in the metric system (i.e. speed in kilometres/hour, distances in metres)
 
-The received data thus needs to be converted into a common format (in our case, we opted for the metric system) to make sure that our mission experts can interpret the data correctly, regardless of how a given probe sent it. As we learned from [the Mars Climate Orbiter fail](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter), this is pretty important to keep our probes from ending up in a flaming fireball.
+For the ESA probes, the received data thus needs to be converted into the metric system. As we learned from [the Mars Climate Orbiter fail](https://en.wikipedia.org/wiki/Mars_Climate_Orbiter), this is pretty important to keep our probes from ending up in a flaming fireball.
 
 ## Technical setup
 
@@ -52,5 +52,6 @@ If you want to have a look at the Streams Topology used in this sample, you find
 ### My docker containers are throwing errors on startup - what's wrong?
 
 Unless you're running this example for the first time, your docker containers might be struggling with a previous inconsistent state. Giving yourself a fresh start by running `docker-compose down --remove-orphans -v` inside the `docker` directory should do the trick.
+
 
 Have fun!
